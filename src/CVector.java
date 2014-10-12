@@ -1,9 +1,9 @@
 
-public class cVector {
+public class CVector {
 	double x, y;
 	final static double PI = Math.PI;
 	
-	public cVector(double _x, double _y){
+	public CVector(double _x, double _y){
 		x = _x;
 		y = _y;
 	}
@@ -37,23 +37,23 @@ public class cVector {
 		return components;
 	}
 	
-	public static cVector add(cVector _v1, cVector _v2){
-		cVector v1 = _v1;
-		cVector v2 = _v2;
+	public static CVector add(CVector _v1, CVector _v2){
+		CVector v1 = _v1;
+		CVector v2 = _v2;
 		
-		cVector res = new cVector(v1.x + v2.x, v1.y + v2.y);
+		CVector res = new CVector(v1.x + v2.x, v1.y + v2.y);
 		return res;
 	}
 	
-	public static cVector subtract(cVector _v1, cVector _v2){
-		cVector v1 = _v1;
-		cVector v2 = _v2;
+	public static CVector subtract(CVector _v1, CVector _v2){
+		CVector v1 = _v1;
+		CVector v2 = _v2;
 		
-		cVector res = new cVector(v1.x - v2.x, v1.y - v2.y);
+		CVector res = new CVector(v1.x - v2.x, v1.y - v2.y);
 		return res;
 	}
 	
-	public static cVector dirVector(double _degAngle, double _magnitude){
+	public static CVector dirVector(double _degAngle, double _magnitude){
 		double angle = _degAngle * PI / 180;
 		double magnitude = _magnitude;
 		
@@ -87,7 +87,7 @@ public class cVector {
 			default:break;
 		}
 		
-		cVector res = new cVector(x,y);
+		CVector res = new CVector(x,y);
 		return res;
 	}
 

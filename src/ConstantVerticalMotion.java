@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 
-public class constantVerticalMotion {
+public class ConstantVerticalMotion {
 	
 	private double g;
 	private double inc;
@@ -16,7 +16,7 @@ public class constantVerticalMotion {
 	private int[][] scaledHandPoints;
 	private int[][] scaledBallPoints;
 	
-	public constantVerticalMotion(double _g, double _r, double _l, double _m, double _v, double _inc) {
+	public ConstantVerticalMotion(double _g, double _r, double _l, double _m, double _v, double _inc) {
 		g =_g;
 
 		r = _r; //circle radius
@@ -44,11 +44,11 @@ public class constantVerticalMotion {
 	}
 	
 	public void simulate(){
-		cVector tension;
-		cVector fnet;
-		cVector ballPos;
-		cVector handPos;
-		cVector mg = cVector.dirVector(270, m * g);
+		CVector tension;
+		CVector fnet;
+		CVector ballPos;
+		CVector handPos;
+		CVector mg = CVector.dirVector(270, m * g);
 		
 		for (int i = 0; i < 360/inc; i ++){
 			/**
@@ -57,12 +57,12 @@ public class constantVerticalMotion {
 			 * 
 			 * Using direction and chain length (l), get hand pos
 			 */
-			ballPos = cVector.dirVector(i*inc, r);
+			ballPos = CVector.dirVector(i*inc, r);
 			
-			fnet = cVector.dirVector(ballPos.getAngle() + 180 , m * v * v / r);
-			tension = cVector.add(fnet, mg);
+			fnet = CVector.dirVector(ballPos.getAngle() + 180 , m * v * v / r);
+			tension = CVector.add(fnet, mg);
 						
-			handPos = cVector.add(ballPos, cVector.dirVector(tension.getAngle(), l));
+			handPos = CVector.add(ballPos, CVector.dirVector(tension.getAngle(), l));
 			
 			ballPoints[i] = ballPos.getComponents();
 			handPoints[i] = handPos.getComponents();

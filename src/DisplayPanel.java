@@ -21,7 +21,7 @@ public class DisplayPanel extends JPanel implements Runnable {
 	
 	private boolean running;
 	
-	private constantVerticalMotion cvm;
+	private ConstantVerticalMotion cvm;
 	
 	final private int WIDTH = 500;
 	final private int HEIGHT = 500;
@@ -47,7 +47,7 @@ public class DisplayPanel extends JPanel implements Runnable {
 		
 		period = (long) (( 2*r*Math.PI / v ) * (inc / 360) * 1000000000L * (periodMultiplier)); //nanoseconds
 		
-		cvm = new constantVerticalMotion(g, r, l, m, v, inc);
+		cvm = new ConstantVerticalMotion(g, r, l, m, v, inc);
 		cvm.simulate();
 		backImage = cvm.generateBufferedImage(WIDTH, HEIGHT);		
 	}
@@ -60,7 +60,7 @@ public class DisplayPanel extends JPanel implements Runnable {
 		v = _v;
 		
 		int count = cvm.getAnimationCounter();
-		cvm = new constantVerticalMotion(g, r, l, m, v, inc);
+		cvm = new ConstantVerticalMotion(g, r, l, m, v, inc);
 		cvm.setAnimationCounter(count);
 		cvm.simulate();
 		period = (long) (( 2*r*Math.PI / v ) * (inc / 360) * 1000000000L * (periodMultiplier)); //nanoseconds
