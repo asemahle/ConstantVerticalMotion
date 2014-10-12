@@ -10,7 +10,7 @@ public class CVMJFrame extends JFrame implements WindowListener {
 	private SpinnerPanel spinnerPanel;
 	
 	public CVMJFrame(){
-		super("CVMJFrame");
+		super("Constant Vertical Circular Motion");
 		
 		makeGUI();
 		
