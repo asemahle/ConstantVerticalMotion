@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -13,6 +14,9 @@ import javax.swing.event.ChangeListener;
 
 public class SpinnerPanel extends JPanel{
 
+	private JLabel title;
+	private JLabel description;
+	
 	private JLabel gLabel;
 	private JLabel rLabel;
 	private JLabel lLabel;
@@ -40,8 +44,8 @@ public class SpinnerPanel extends JPanel{
 	private final double MAX = 10;
 	
 	public SpinnerPanel(double _g, double _r, double _l, double _w, double _v, DisplayPanel  _simulator){
-		this.setBackground(Color.gray);
-		this.setPreferredSize(new Dimension(250,500));
+		this.setBackground(Color.LIGHT_GRAY);
+		this.setPreferredSize(new Dimension(300,500));
 		this.setBorder(BorderFactory.createRaisedBevelBorder());
 		
 		g = _g;
@@ -110,9 +114,17 @@ public class SpinnerPanel extends JPanel{
 	}
 	
 	private void makeLabels(){
-		gLabel = new JLabel ("Gravity (m/s^2):");
+		title = new JLabel ("Constant Vertical Circular Motion");
+		title.setFont(new Font("SansSerif", Font.BOLD, 14));
+		description = new JLabel ("<html><br><p>Sally is spinning her grandfather's watch "
+				+ "in a circle by the chain. The watch spins in a vertical circle "
+				+ "at a constant speed.</p><ol><li>The <b>black</b> curve shows the path of the "
+				+ "watch</li><li>The <font color='red'><b> red </b></font> curve shows "
+				+ "the path of Sally's hand</li></ol></html>");
+		
+		gLabel = new JLabel ("<html>Gravity (m/s<sup>2</sup>):</html>");
 		rLabel = new JLabel ("Radius (m):");
-		lLabel = new JLabel ("String Length (m):");
+		lLabel = new JLabel ("Chain Length (m):");
 		wLabel = new JLabel ("Ball Mass (kg)");
 		vLabel = new JLabel ("Ball Speed (m/s)");
 	}
@@ -124,42 +136,53 @@ public class SpinnerPanel extends JPanel{
 		
 		c.gridx = 0;
 		c.gridy = 0;
+		c.gridwidth = 2;
+		this.add(title, c);
+		
+		c.gridx = 0;
+		c.gridy = 1;
+		this.add(description,c);
+		
+		c.gridwidth = 1;
+		
+		c.gridx = 0;
+		c.gridy = 2;
 		this.add(gLabel, c);
 		
 		c.gridx = 1;
-		c.gridy = 0;
+		c.gridy = 2;
 		this.add(gSpinner, c);
 		
 		c.gridx = 0;
-		c.gridy = 1;
+		c.gridy = 3;
 		this.add(rLabel, c);
 		
 		c.gridx = 1;
-		c.gridy = 1;
+		c.gridy = 3;
 		this.add(rSpinner, c);
 		
 		c.gridx = 0;
-		c.gridy = 2;
+		c.gridy = 4;
 		this.add(lLabel, c);
 		
 		c.gridx = 1;
-		c.gridy = 2;
+		c.gridy = 4;
 		this.add(lSpinner, c);
 		
 		c.gridx = 0;
-		c.gridy = 3;
+		c.gridy = 5;
 		this.add(wLabel, c);
 		
 		c.gridx = 1;
-		c.gridy = 3;
+		c.gridy = 5;
 		this.add(wSpinner, c);
 		
 		c.gridx = 0;
-		c.gridy = 4;
+		c.gridy = 6;
 		this.add(vLabel, c);
 		
 		c.gridx = 1;
-		c.gridy = 4;
+		c.gridy = 6;
 		this.add(vSpinner, c);
 	}
 }
